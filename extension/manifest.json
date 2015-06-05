@@ -1,0 +1,51 @@
+{
+  "manifest_version": 2,
+  "name": "Isolated Cookie",
+  "description": "",
+  "version": "0.1",
+
+  "icons": {
+    "256": "img/icon256.png"
+  },
+
+  "options_page": "html/options.html",
+
+  "background": {
+    "scripts": [
+      "/js/App.js",
+      "/js/background.js"
+    ]
+  },
+
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "/js/cs-cookie.js"
+      ],
+      "css": [
+      ],
+      "run_at": "document_start"
+    }
+  ],
+
+  "web_accessible_resources" : [
+    "img/*",
+    "html/*",
+    "lib/*"
+  ],
+
+
+  "permissions": [
+    "tabs",
+    "webRequest",
+    "webRequestBlocking",
+    "http://*/*",
+    "https://*/*",
+    "cookies",
+    "browsingData"
+  ]
+}
